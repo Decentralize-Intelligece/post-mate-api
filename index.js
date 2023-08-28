@@ -39,3 +39,7 @@ app.use("/api/notifications",  notificationRoute);
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
 });
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
