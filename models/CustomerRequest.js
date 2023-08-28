@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const date = new Date();
+let currentDate = date.toJSON();
 
 const CustomerRequestSchema = new mongoose.Schema(
   {
@@ -8,8 +10,12 @@ const CustomerRequestSchema = new mongoose.Schema(
     requestStatus: {
       type: String
     },
-    requestStatus: {
+    replyStatus: {
       type: String
+    },
+    replyMessage:{type: String},
+    recievedDate:{type: Date,
+    default:currentDate
     }
   },
   { timestamps: true }

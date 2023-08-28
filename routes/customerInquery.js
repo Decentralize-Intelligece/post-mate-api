@@ -9,7 +9,7 @@ const router = require("express").Router();
 
 //CREATE
 
-router.post("/", verifyToken, async (req, res) => {
+router.post("/",async (req, res) => {
   const newCustomerInquery = new CustomerInquery(req.body);
 
   try {
@@ -46,25 +46,25 @@ router.post("/", verifyToken, async (req, res) => {
 //   }
 // });
 
-// //GET USER CART
-// router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
-//   try {
-//     const cart = await Cart.findOne({ userId: req.params.userId });
-//     res.status(200).json(cart);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+//GET USER inquery
+router.get("/:userName", async (req, res) => {
+  try {
+    const customerInquery = await CustomerInquery.findOne({ userName: req.params.userName });
+    res.status(200).json(customerInquery);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // //GET ALL
 
-// router.get("/", verifyTokenAndAdmin, async (req, res) => {
-//   try {
-//     const carts = await Cart.find();
-//     res.status(200).json(carts);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+router.get("/",async (req, res) => {
+  try {
+    const customerInqueries = await CustomerInquery.find();
+    res.status(200).json(customerInqueries);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
