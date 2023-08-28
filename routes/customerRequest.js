@@ -9,7 +9,9 @@ const {
 const router = require("express").Router();
 
 //CREATE
-router.post("/", verifyToken, async (req, res) => {
+// router.post("/", verifyToken, async (req, res) => {
+router.post("/",  async (req, res) => {
+
     const newCustomerRequest = new CustomerRequest(req.body);
 
     try {

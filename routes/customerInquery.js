@@ -9,7 +9,9 @@ const router = require("express").Router();
 
 //CREATE
 
-router.post("/", verifyToken, async (req, res) => {
+// router.post("/", verifyToken, async (req, res) => {
+router.post("/",  async (req, res) => {
+
   const newCustomerInquery = new CustomerInquery(req.body);
 
   try {
@@ -29,6 +31,17 @@ router.get("/count", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+//GET ALL
+router.get("/",  async (req, res) => {
+  try {
+    const customerInquery = await CustomerInquery.find();
+    res.status(200).json(customerInquery);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 // //UPDATE
 // router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
