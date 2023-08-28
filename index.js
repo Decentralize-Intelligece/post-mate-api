@@ -13,6 +13,7 @@ const customerRoute = require("./routes/customer");
 const customerInqueryRoute = require("./routes/customerInquery");
 const customerRequestRoute = require("./routes/customerRequest");
 const notificationRoute = require("./routes/notificationRoute");
+const postOfficeInfoRoute = require("./routes/postOfficeInfo");
 const cors = require("cors");
 
 
@@ -35,6 +36,7 @@ app.use("/api/customers", customerRoute);
 app.use("/api/inqueries", customerInqueryRoute);
 app.use("/api/requests", customerRequestRoute);
 app.use("/api/notifications",  notificationRoute);
+app.use("/api/postofficeinfo",  postOfficeInfoRoute);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
