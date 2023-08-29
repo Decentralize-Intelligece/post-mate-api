@@ -76,6 +76,24 @@ router.put("/reject/:id", async (req, res) => {
     }
 });
 
+// REPLY REQUEST    
+router.put("/reply/:id", async (req, res) => {
+    // update requestReplied to "true" in CustomerRequest
+    try {
+        const requestReplied = await CustomerRequest.findByIdAndUpdate(
+            req.params.id,
+            {
+                $set: {requestReplied: true},
+            },
+            {new: true}
+        );
+        res.status(200).json(requestReplied);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 
 
 
