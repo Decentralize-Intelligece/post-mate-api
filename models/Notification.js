@@ -6,6 +6,7 @@ const NotificationSchema = new mongoose.Schema(
     userName: { type: String, required: true},
     senderAddress: { type: String, required: true },
     isReply: {type:Boolean, default: false},
+    hasLetter: {type: Boolean, default: false},
     message: {type: String, required: false},
   },
   { timestamps: true }

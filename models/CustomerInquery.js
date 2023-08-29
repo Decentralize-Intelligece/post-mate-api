@@ -4,7 +4,7 @@ const CustomerInquerySchema = new mongoose.Schema(
   {
     userName: { type: String, required: true },
     address: { type: String, required: true},
-    phoneNumber: { type: String },
+    phoneNumber: { type: Number },
     message: {
       type: String
     }
