@@ -8,7 +8,8 @@ const {
 const router = require("express").Router();
 
 //CREATE
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+// router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/",  async (req, res) => {
     const newUser = new User(req.body);
 
     try {
