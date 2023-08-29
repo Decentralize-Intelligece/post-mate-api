@@ -20,6 +20,16 @@ router.post("/",async (req, res) => {
   }
 });
 
+// TOTAL NUMBER OF INQUERY
+router.get("/count", async (req, res) => {
+  try {
+    const totalInquery = await CustomerInquery.find().count();
+    res.status(200).json(totalInquery);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // //UPDATE
 // router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
 //   try {
