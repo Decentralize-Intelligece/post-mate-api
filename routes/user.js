@@ -9,8 +9,7 @@ const {
 const router = require("express").Router();
 
 //CREATE
-// router.post("/", verifyTokenAndAdmin, async (req, res) => {
-router.post("/",  async (req, res) => {
+router.post("/", async (req, res) => {
     const newUser = new User(req.body);
 
     try {
@@ -22,16 +21,7 @@ router.post("/",  async (req, res) => {
 });
 
 //UPDATE
-// router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
-router.put("/:id",  async (req, res) => {
-
-    // if (req.body.password) {
-    //     req.body.password = CryptoJS.AES.encrypt(
-    //         req.body.password,
-    //         process.env.PASS_SEC
-    //     ).toString();
-    // }
-
+router.put("/:id", async (req, res) => {
     try {
         const updatedUser = await User.findByIdAndUpdate(
             req.params.id,
@@ -48,7 +38,7 @@ router.put("/:id",  async (req, res) => {
 
 //DELETE
 // router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
-router.delete("/:id",  async (req, res) => {
+router.delete("/:id", async (req, res) => {
 
     try {
         await User.findByIdAndDelete(req.params.id);
@@ -59,8 +49,7 @@ router.delete("/:id",  async (req, res) => {
 });
 
 //GET USER
-// router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
-router.get("/find/:id",  async (req, res) => {
+router.get("/find/:id", async (req, res) => {
 
     try {
         const user = await User.findById(req.params.id);
@@ -95,8 +84,7 @@ router.get("/count", async (req, res) => {
 });
 
 //GET USER STATS
-// router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
-router.get("/stats",  async (req, res) => {
+router.get("/stats", async (req, res) => {
 
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));

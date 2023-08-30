@@ -10,7 +10,7 @@ const router = require("express").Router();
 
 //CREATE
 // router.post("/", verifyToken, async (req, res) => {
-router.post("/",  async (req, res) => {
+router.post("/", async (req, res) => {
 
     const newCustomerRequest = new CustomerRequest(req.body);
 
@@ -92,9 +92,6 @@ router.put("/reply/:id", async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-
-
 
 
 // //UPDATE

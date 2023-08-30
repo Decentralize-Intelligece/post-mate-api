@@ -1,26 +1,24 @@
 const UserFeedback = require("../models/UserFeedback");
 const {
-  verifyToken,
-  verifyTokenAndAuthorization,
-  verifyTokenAndAdmin,
+    verifyToken,
+    verifyTokenAndAuthorization,
+    verifyTokenAndAdmin,
 } = require("./verifyToken");
 
 const router = require("express").Router();
 
 //CREATE
-
-// router.post("/", verifyToken, async (req, res) => {
-router.post("/",  async (req, res) => {
+router.post("/", async (req, res) => {
     console.log(req.body);
 
-  const newUserFeedback = new UserFeedback(req.body);
+    const newUserFeedback = new UserFeedback(req.body);
 
-  try {
-    const savedUserFeedback = await newUserFeedback.save();
-    res.status(200).json(savedUserFeedback);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+    try {
+        const savedUserFeedback = await newUserFeedback.save();
+        res.status(200).json(savedUserFeedback);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // TOTAL NUMBER OF INQUERY
@@ -34,15 +32,14 @@ router.get("/count", async (req, res) => {
 });
 
 //GET ALL
-router.get("/",  async (req, res) => {
-  try {
-    const feedbacks = await UserFeedback.find();
-    res.status(200).json(feedbacks);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/", async (req, res) => {
+    try {
+        const feedbacks = await UserFeedback.find();
+        res.status(200).json(feedbacks);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
-
 
 
 module.exports = router;

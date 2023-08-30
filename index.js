@@ -17,11 +17,11 @@ const cors = require("cors");
 
 
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("DB Connection Successfull!"))
-  .catch((err) => {
-    console.log(err);
-  });
+    .connect(process.env.MONGO_URL)
+    .then(() => console.log("DB Connection Successfull!"))
+    .catch((err) => {
+        console.log(err);
+    });
 
 app.use(cors());
 app.use(express.json());
@@ -33,11 +33,11 @@ app.use("/api/customers", customerRoute);
 app.use("/api/inqueries", customerInqueryRoute);
 app.use("/api/userfeedback", userFeedbackRoute);
 app.use("/api/requests", customerRequestRoute);
-app.use("/api/notifications",  notificationRoute);
+app.use("/api/notifications", notificationRoute);
 app.use("/api/postalcost", postalCost);
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log("Backend server is running!");
+    console.log("Backend server is running!");
 });
 
 app.get('/', (req, res) => {
