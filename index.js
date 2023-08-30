@@ -14,6 +14,7 @@ const customerRoute = require("./routes/customer");
 const customerInqueryRoute = require("./routes/customerInquery");
 const customerRequestRoute = require("./routes/customerRequest");
 const notificationRoute = require("./routes/notificationRoute");
+const userFeedbackRoute = require("./routes/userFeedback");
 const cors = require("cors");
 
 
@@ -35,6 +36,7 @@ app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
 app.use("/api/customers", customerRoute);
 app.use("/api/inqueries", customerInqueryRoute);
+app.use("/api/userfeedback", userFeedbackRoute);
 app.use("/api/requests", customerRequestRoute);
 app.use("/api/notifications",  notificationRoute);
 
